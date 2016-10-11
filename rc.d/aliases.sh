@@ -99,3 +99,8 @@ alias bcls='brew cask list'
 alias bcinf='brew cask info'
 alias bcdr='brew cask doctor'
 alias bced='brew cask edit'
+
+################################################################################
+# Weather
+
+alias weather='curl http://wttr.in/48103'
