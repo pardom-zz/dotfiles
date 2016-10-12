@@ -2,7 +2,8 @@
 
 __powerline() {
 
-    readonly PS_SYMBOL='⟩'
+    readonly PS_SYMBOL='$'
+    readonly APPEND_SYMBOL=''
     readonly GIT_BRANCH_SYMBOL='⑂ '
     readonly GIT_BRANCH_CHANGED_SYMBOL='+'
     readonly GIT_NEED_PUSH_SYMBOL='⇡'
@@ -49,6 +50,10 @@ __powerline() {
     readonly RESET="\[$(tput sgr0)\]"
     readonly BOLD="\[$(tput bold)\]"
 
+    __time() {
+      printf " $(date +%I:%M) "
+    }
+
     __git_info() {
         [ -x "$(which git)" ] || return    # git not found
 
@@ -70,7 +75,7 @@ __powerline() {
         [ -n "$behindN" ] && marks+=" $GIT_NEED_PULL_SYMBOL$behindN"
 
         # print the git branch segment without a trailing newline
-        printf " $GIT_BRANCH_SYMBOL$branch$marks "
+        printf "$GIT_BRANCH_SYMBOL$branch$marks"
     }
 
     ps1() {
@@ -82,10 +87,25 @@ __powerline() {
             local BG_EXIT="$BG_RED"
         fi
 
-        PS1="$BG_BASE1$FG_BASE3 \w $RESET"
-        PS1+="$BG_BLUE$FG_BASE3$(__git_info)$RESET"
-        PS1+="$BG_EXIT$FG_BASE3$RESET"
-        PS1+="\n$BOLD$PS_SYMBOL $RESET"
+        # Time
+        PS1="$BG_BASE2$FG_BASE02$(__time)$RESET"
+
+        # Current directory
+        PS1+="$BG_BLUE$FG_BASE2$APPEND_SYMBOL$RESET"
+        PS1+="$BG_BLUE$FG_BASE3 \w $RESET"
+        PS1+="$FG_BLUE"
+
+        # Git
+        GIT_INFO="$(__git_info)"
+        if [ "$GIT_INFO" ]; then
+          PS1+="$BG_VIOLET$APPEND_SYMBOL$RESET"
+          PS1+="$BG_VIOLET$FG_BASE3 $GIT_INFO $RESET"
+          PS1+="$FG_VIOLET$APPEND_SYMBOL$RESET"
+        else
+          PS1+="$APPEND_SYMBOL$RESET"
+        fi
+
+        PS1+="\n$PS_SYMBOL $RESET"
     }
 
     PROMPT_COMMAND=ps1
