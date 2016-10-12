@@ -26,3 +26,8 @@ if [ -d $HOME/.shellrc/rc.d ]; then
     source $file
   done
 fi
+
+# Bash completions
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  source $(brew --prefix)/etc/bash_completion
+fi
