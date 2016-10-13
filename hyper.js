@@ -82,6 +82,7 @@ module.exports = {
       hideOnBlur: true,
       hotkeys: ['Control+`'],
       position: 'bottom',
+      resizable: false,
       size: 0.35,
       tray: false
     }
