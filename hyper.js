@@ -4,7 +4,7 @@ module.exports = {
     fontSize: 14,
 
     // font family with optional fallbacks
-    fontFamily: '"SourceCodePro+Powerline+Awesome Regular", Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
+    fontFamily: '"Source Code Pro for Powerline", Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
     cursorColor: 'rgba(248,28,229,0.75)',
@@ -16,7 +16,7 @@ module.exports = {
     foregroundColor: '#fff',
 
     // terminal background color
-    backgroundColor: 'rgba(40, 44, 52, 1)',
+    backgroundColor: '#000',
 
     // border color (window, tabs)
     borderColor: '#333',
