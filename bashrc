@@ -13,6 +13,11 @@ if [[ $- != *i* ]] ; then
   return
 fi
 
+# Bash completions
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  source $(brew --prefix)/etc/bash_completion
+fi
+
 # load all files from .shell/bashrc.d directory
 if [ -d $HOME/.shellrc/bashrc.d ]; then
   for file in $HOME/.shellrc/bashrc.d/*.bash; do
@@ -25,9 +30,4 @@ if [ -d $HOME/.shellrc/rc.d ]; then
   for file in $HOME/.shellrc/rc.d/*.sh; do
     source $file
   done
-fi
-
-# Bash completions
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  source $(brew --prefix)/etc/bash_completion
 fi
