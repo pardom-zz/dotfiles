@@ -9,8 +9,6 @@
 [user]
 	email = kensuke155@gmail.com
 	name = Michael Pardo
-[core]
-	editor = /Applications/Komet.app/Contents/MacOS/Komet
 [merge]
 	tool = Kaleidoscope
 [mergetool]
@@ -24,3 +22,5 @@
 	prompt = false
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[core]
+	editor = vim -c 'startinsert'

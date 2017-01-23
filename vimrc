@@ -45,15 +45,38 @@ let g:ctrlp_working_path_mode = 'ra'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Code editing
 
+"-------------------------------------------------------------------------------
 " Linting
 Plug 'scrooloose/syntastic'
+set statusline+=%#warningmsg# 
+set statusline+=%{SyntasticStatuslineFlag}
+set statusline+=%* 
+let g:syntastic_always_populate_loc_list = 1 
+let g:syntastic_auto_loc_list = 1 
+let g:syntastic_check_on_open = 1 
+let g:syntastic_check_on_wq = 0
+
+"-------------------------------------------------------------------------------
+" Completion
+Plug 'ajh17/vimcompletesme'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Languages
 
+"-------------------------------------------------------------------------------
 " Kotlin
 Plug 'udalov/kotlin-vim'
+
+"-------------------------------------------------------------------------------
+" Elm
+Plug 'elmcast/elm-vim'
+let g:elm_syntastic_show_warnings=1
+let g:elm_format_autosave=1
+let g:syntastic_elm_checkers=['elm_make']
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug End
 
 call plug#end()
 
