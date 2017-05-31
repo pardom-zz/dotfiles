@@ -17,6 +17,10 @@ alias ll='ls -al'
 alias l='ls -a'
 alias l1='ls -1'
 
+# macOS
+
+alias screensaver='open -a ScreenSaverEngine'
+
 ################################################################################
 # Git
 
