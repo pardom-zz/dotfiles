@@ -216,8 +216,6 @@ set completion-map-case on
 #
 # mark-symlinked-directories off
 
-set mark-symlinked-directories off
-
 # This variable, when set to ‘on’, causes Readline to match files whose names
 # begin with a ‘.’ (hidden files) when performing filename completion. If set to
 # ‘off’, the leading ‘.’ must be supplied by the user in the filename to be
@@ -225,13 +223,15 @@ set mark-symlinked-directories off
 #
 # match-hidden-files on
 
-set match-hidden-files on
+set match-hidden-files off
 
 # If set to ‘on’, menu completion displays the common prefix of the list of
 # possible completions (which may be empty) before cycling through the list. The
 # default is ‘off’.
 #
 # menu-complete-display-prefix off
+
+set menu-complete-display-prefix on
 
 # If set to ‘on’, Readline will display characters with the eighth bit set
 # directly rather than as a meta-prefixed escape sequence. The default is ‘off’,
@@ -644,7 +644,7 @@ set visible-stats on
 # used to move backward through the list. This command is intended to be bound
 # to TAB, but is unbound by default.
 
-"\e[Z": menu-complete
+TAB: menu-complete
 
 # menu-complete-backward ()
 # Identical to menu-complete, but moves backward through the list of possible
