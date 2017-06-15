@@ -294,6 +294,8 @@ set show-all-if-unmodified on
 #
 # skip-completed-text off
 
+set skip-completed-text on
+
 # This string is displayed immediately before the last line of the primary
 # prompt when vi editing mode is active and in command mode. The value is
 # expanded like a key binding, so the standard set of meta- and control prefixes
