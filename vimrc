@@ -1,6 +1,7 @@
 " Plugins {{{
 
 " Initialization {{{
+
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
@@ -12,13 +13,13 @@ Plug 'chriskempson/base16-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'eagletmt/ghcmod-vim'
 Plug 'eagletmt/neco-ghc'
-Plug 'elmcast/elm-vim'
-Plug 'hsanson/vim-android'
 Plug 'junegunn/goyo.vim'
+Plug 'junegunn/vader.vim'
+Plug 'majutsushi/tagbar'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
+Plug 'sheerun/vim-polyglot'
 Plug 'shougo/vimproc.vim'
 Plug 'tfnico/vim-gradle'
 Plug 'thinca/vim-quickrun'
@@ -29,9 +30,14 @@ Plug 'valloric/youcompleteme'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/mru.vim'
+Plug 'w0rp/ale'
 
 call plug#end()
 
+" }}}
+
+" ALE {{{
+let g:airline#extensions#ale#enabled = 1
 " }}}
 
 " Base16 {{{
@@ -39,6 +45,10 @@ if filereadable(expand("~/.vimrc_background"))
     let base16colorspace=256
     source ~/.vimrc_background
 endif
+" }}}
+
+" Dart {{{
+autocmd BufWrite *.dart silent :DartFmt
 " }}}
 
 " Goyo {{{
@@ -62,7 +72,6 @@ let g:ycm_semantic_triggers = {'haskell' : ['.']}
 " Appearance {{{
 
 syntax on
-set cursorline
 set colorcolumn=120
 set number
 set ruler
@@ -90,8 +99,8 @@ noremap <space> za
 
 map <C-n> :NERDTreeToggle<CR>
 map <leader>r :MRU getcwd()<CR>
-nmap J :m +1<CR>
-nmap K :m -2<CR>
+" nmap J :m +1<CR>
+" nmap K :m -2<CR>
 " }}}
 
 " Indentation {{{
