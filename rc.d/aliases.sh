@@ -1,25 +1,36 @@
 #!/usr/bin/env bash
 
-################################################################################
-# System
-#   Navigation
+# System {{{
+
+#   Navigation {{{
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
+# }}}
 
-#   Directory listings
+# Directory listings {{{
 alias ls='ls -G'
 alias la='ls -AF'
 alias ll='ls -al'
 alias l='ls -a'
 alias l1='ls -1'
+# }}}
 
-################################################################################
-# Git
+# }}}
 
+# tmux {{{
+
+alias tml='tmux ls'
+alias tma='tmux attach-session -t'
+alias tmn='tmux new-session -A -s $(basename $PWD | tr -d .)'
+alias tmk='tmux kill-session -t'
+
+# }}}
+
+# Git {{{
 alias gcl='git clone'
 alias ga='git add'
 alias gap='git add -p'
@@ -71,11 +82,11 @@ alias gtl="git tag -l"
 alias gnew="git log HEAD@{1}..HEAD@{0}"
 alias gcaa="git commit -a --amend -C HEAD"
 alias ggui="git gui"
+# }}}
 
-################################################################################
-# Homebrew
+# Homebrew {{{
 
-#   brew
+# brew {{{
 alias bup='brew update && brew upgrade'
 alias bupc='brew update && brew upgrade --cleanup'
 alias bout='brew outdated'
@@ -87,8 +98,9 @@ alias bsr='brew search'
 alias binf='brew info'
 alias bdr='brew doctor'
 alias bed='brew edit'
+# }}}
 
-#   brew cask
+# brew cask {{{
 alias bcup='brew cask update'
 alias bcin='brew cask install'
 alias bcrm='brew cask uninstall'
@@ -99,14 +111,17 @@ alias bcls='brew cask list'
 alias bcinf='brew cask info'
 alias bcdr='brew cask doctor'
 alias bced='brew cask edit'
+# }}}
 
-################################################################################
-# Weather
+# }}}
+
+# Weather {{{
 
 alias weather='curl http://wttr.in/48103'
 
-################################################################################
-# Alias completion
+# }}}
+
+# Alias completion {{{
 # Automatically add completion for all aliases to commands having completion functions
 
 function alias_completion {
@@ -176,3 +191,7 @@ function alias_completion {
     done < <(alias -p | sed -Ene "s/$alias_regex/\1 '\2' '\3'/p")
     source "$tmp_file" && rm -f "$tmp_file"
 }; alias_completion
+
+# }}}
+
+# vim:foldmethod=marker:foldlevel=0
