@@ -5,3 +5,4 @@ ln -sni $HOME/.shellrc/gitconfig $HOME/.gitconfig
 ln -sni $HOME/.shellrc/sqliterc $HOME/.sqliterc
 ln -sni $HOME/.shellrc/tmux.conf $HOME/.tmux.conf
 ln -sni $HOME/.shellrc/vimrc $HOME/.vimrc
+ln -sni $HOME/.shellrc/vimrc_background $HOME/.vimrc_background

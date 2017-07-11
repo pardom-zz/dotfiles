@@ -9,27 +9,30 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'airblade/vim-gitgutter'
+Plug 'ap/vim-css-color'
 Plug 'chriskempson/base16-vim'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'eagletmt/ghcmod-vim'
 Plug 'eagletmt/neco-ghc'
+Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/vader.vim'
 Plug 'majutsushi/tagbar'
-Plug 'nathanaelkane/vim-indent-guides'
+Plug 'pardom/vim-gradle'
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'shougo/vimproc.vim'
-Plug 'tfnico/vim-gradle'
 Plug 'thinca/vim-quickrun'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
 Plug 'udalov/kotlin-vim'
 Plug 'valloric/youcompleteme'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-scripts/mru.vim'
 Plug 'w0rp/ale'
 
 call plug#end()
@@ -47,6 +50,11 @@ if filereadable(expand("~/.vimrc_background"))
 endif
 " }}}
 
+" CtrlP {{{
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+" }}}
+ 
 " Dart {{{
 autocmd BufWrite *.dart silent :DartFmt
 " }}}
@@ -59,8 +67,12 @@ let g:goyo_width=120
 " Open NERDTree automatically when vim starts up on opening a directory.
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0])&& !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+" Open a NERDTree automatically when vim starts up if no files were specified.
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " Close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" Size
+let g:NERDTreeWinSize=50
 " }}}
 
 " YouCompleteMe {{{
