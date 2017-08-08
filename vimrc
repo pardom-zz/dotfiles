@@ -63,6 +63,10 @@ autocmd BufWrite *.dart silent :DartFmt
 let g:goyo_width=120
 " }}}
 
+" Kotlin {{{
+autocmd BufWritePost *.kt silent !kotlin-format -w %
+" }}}
+
 " NERDTree {{{
 " Open NERDTree automatically when vim starts up on opening a directory.
 autocmd StdinReadPre * let s:std_in=1
