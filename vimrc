@@ -77,6 +77,8 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " Size
 let g:NERDTreeWinSize=50
+" Hidden files
+let g:NERDTreeShowHidden=1
 " }}}
 
 " YouCompleteMe {{{
