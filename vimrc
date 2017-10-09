@@ -90,7 +90,7 @@ let g:ycm_semantic_triggers = {'haskell' : ['.']}
 " Appearance {{{
 
 syntax on
-set colorcolumn=120
+set colorcolumn=100
 set number
 set ruler
 
