@@ -73,6 +73,7 @@ chunkc core::load border.so
 
 chunkc tiling::rule --owner Finder --name Copy --state float
 chunkc tiling::rule --owner iTerm2 --name Hotkey Window --state float
+chunkc tiling::rule --owner IntelliJ --state float
 chunkc tiling::rule --owner Twitter --state float
 chunkc tiling::rule --owner qemu-system-x86_64 --desktop 2
 chunkc tiling::rule --owner qemu-system-i386 --desktop 2
