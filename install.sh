@@ -1,3 +1,4 @@
+ln -sni $HOME/.shellrc/config/karabiner $HOME/.config/karabiner
 ln -sni $HOME/.shellrc/bash_profile $HOME/.bash_profile
 ln -sni $HOME/.shellrc/bashrc $HOME/.bashrc
 ln -sni $HOME/.shellrc/chunkwmrc $HOME/.chunkwmrc
